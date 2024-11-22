@@ -7,7 +7,7 @@ app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
     // Render the a.html file
-    res.sendFile(__dirname + '/choose.html');
+    res.sendFile(__dirname + '/index.html');
     }
 );
 
