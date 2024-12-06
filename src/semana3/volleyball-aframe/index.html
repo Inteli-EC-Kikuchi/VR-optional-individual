@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Haikyuu! - VR</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+        <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+    </head>
+  
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="court" src="./assets/volleyball_court/scene.gltf"></a-asset-item>
+        <a-asset-item id="ball" src="./assets/volleyball_high-poly/scene.gltf"></a-asset-item>
+        <a-asset-item id="hinata" src="./assets/hinata_shoyou_-_haikyuu/scene.gltf"></a-asset-item>
+        <a-asset-item id="oikawa" src="./assets/toru_oikawa_haikyuu/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity>
+        <a-camera></a-camera>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
+      </a-entity>
+      <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
+
+        <a-entity 
+            gltf-model="#court"
+            scale="1 1 1"
+            position="136 0 0"
+            rotation="0 0 0"
+         ></a-entity>
+
+        <a-entity 
+            gltf-model="#ball"
+            scale="4 4 4"
+            position="0 3 -6"
+            rotation="0 0 0"
+            animation="property: rotation; to: 360 0 0; loop: true; dur: 500; easing: linear"
+        ></a-entity>
+
+        <a-entity 
+            gltf-model="#hinata"
+            scale="1 1 1"
+            position="0 0 -1"
+            rotation="0 0 0"
+         ></a-entity>
+
+        <a-entity 
+            gltf-model="#oikawa"
+            scale="1 1 1"
+            position="0 1.5 3"
+            rotation="0 180 0"
+        ></a-entity>
+        
+    </a-scene>
+  </body>
+</html>
