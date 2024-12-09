@@ -1,0 +1,8 @@
+Model Information:
+* title:	Pan
+* source:	https://sketchfab.com/3d-models/pan-8b6ae8478d514e0ea87dd61051244004
+* author:	marecek (https://sketchfab.com/marecekdeme)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

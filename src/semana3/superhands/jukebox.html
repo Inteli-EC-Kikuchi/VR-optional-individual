@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Most Basic Super-Hands Example</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+        <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+    </head>
+  
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="chao" src="./assets/Texturelabs_Stone_168L.jpg"/>
+        <a-asset-item id="game_machine" src="./assets/Electronic Game.glb"></a-asset-item>
+      </a-assets>
+      <a-entity>
+        <a-camera></a-camera>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
+      </a-entity>
+      <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
+      <a-plane
+                material="src:#chao"
+                rotation="-90 0 0"
+                repeat="5 5"
+                scale="10 10 1">
+        </a-plane>
+        <a-entity 
+            gltf-model="#game_machine"
+            scale="1 1 1"
+            position="0 0 0"
+            rotation="0 0 0"
+         ></a-entity>
+
+         <a-cylinder
+            scale="0.08 0.08 0.08"
+            position="0.161 0.941 -0.983"
+            rotation="30 0 0"
+            color="crimson" height="1" radius="1.5"
+        ></a-cylinder>
+        
+    </a-scene>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<head>
+    <title>Interactive Music and Display</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+</head>
+  
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="chao" src="./assets/Texturelabs.jpg"/>
+            <a-asset-item id="game_machine" src="./assets/Electronic Game.glb"></a-asset-item>
+            <audio id="musica1" src="./assets/RideOrDie.mp3"></audio>
+            <audio id="musica2" src="./assets/Rachador.mp3"></audio>
+            <audio id="musica3" src="./assets/NoHero.mp3"></audio>
+            <img id="NCS" src="./assets/NCS.png"/>
+            <img id="Rachador" src="./assets/Rachador.png"/>
+            <img id="NoHero" src="./assets/NoHero.png"/>
+        </a-assets>
+        <a-entity>
+            <a-camera></a-camera>
+            <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+            <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
+        </a-entity>
+
+        <a-sky color="c3"> </a-sky>
+        <a-plane
+            material="src:#chao"
+            rotation="-90 0 0"
+            repeat="5 5"
+            scale="10 10 1">
+        </a-plane>
+        <a-entity
+            gltf-model="#game_machine"
+            scale="1.5 1.5 1.5"
+            position="-0.5 0 -2"
+            rotation="0 0 0">
+        </a-entity>
+
+        <!-- Cylinders for interaction -->
+        <a-cylinder 
+            id="cylinder1"
+            scale="0.06033 0.06033 0.06033" 
+            position="-0.01432 0.92107 -0.86627" 
+            rotation="29.999999999999996 0 0" 
+            color="green">
+        </a-cylinder>
+        <a-cylinder 
+            id="cylinder2"
+            scale="0.08 0.08 0.08" 
+            position="0.18155 0.99669 -0.91508" 
+            rotation="29.999999999999996 0 0" 
+            color="blue">
+        </a-cylinder>
+        <a-cylinder 
+            id="cylinder3"
+            scale="0.08 0.08 0.08" 
+            position="0.4262 0.9854 -1.00436" 
+            rotation="29.999999999999996 0 0"
+            color="crimson">
+        </a-cylinder>
+
+        <!-- Display image -->
+        <a-image 
+            id="display" 
+            src="#NCS" 
+            position="0.103 1.763 -1.340" 
+            rotation="-19.5 0 0">
+        </a-image>
+    </a-scene>
+
+    <script>
+        // Get the elements
+        const cylinder1 = document.querySelector("#cylinder1");
+        const cylinder2 = document.querySelector("#cylinder2");
+        const cylinder3 = document.querySelector("#cylinder3");
+
+        const display = document.querySelector("#display");
+
+        const music1 = document.querySelector("#musica1");
+        const music2 = document.querySelector("#musica2");
+        const music3 = document.querySelector("#musica3");
+
+        // Stop all music
+        function stopAllMusic() {
+            music1.pause();
+            music2.pause();
+            music3.pause();
+            music1.currentTime = 0;
+            music2.currentTime = 0;
+            music3.currentTime = 0;
+        }
+
+        // Event listeners for cylinders
+        cylinder1.addEventListener("click", () => {
+            stopAllMusic();
+            music1.play();
+            display.setAttribute("src", "#NCS");
+        });
+
+        cylinder2.addEventListener("click", () => {
+            stopAllMusic();
+            music2.play();
+            display.setAttribute("src", "#Rachador");
+        });
+
+        cylinder3.addEventListener("click", () => {
+            stopAllMusic();
+            music3.play();
+            display.setAttribute("src", "#NoHero");
+        });
+    </script>
+</body>
